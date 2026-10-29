@@ -1,0 +1,22 @@
+<?php
+// Database connection for XAMPP/phpMyAdmin.
+$host = "localhost";
+$dbname = "animal_hospital";
+$username = "root";
+$password = "";
+
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+        $username,
+        $password,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false
+        ]
+    );
+} catch (PDOException $e) {
+    die("Database connection failed. Start MySQL in XAMPP and check includes/config.php.");
+}
+?>
